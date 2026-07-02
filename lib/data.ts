@@ -25,6 +25,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     detail:
       '메디25케어 플랫폼의 아이돌보미 매칭 서비스입니다. 보호자와 아이돌보미 간 실시간 채팅(Socket.IO), 매칭 플로우, 시급 확정 및 돌봄 예약 프로세스를 구현했습니다. TanStack Form + Zod로 복잡한 폼 유효성 검증을 처리하고, TanStack Query로 서버 상태를 관리했습니다.',
     category: 'work',
+    company: '(주)케이알메딕스',
   },
   {
     id: 'krsmo',
@@ -42,6 +43,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     detail:
       'KRSMO의 글로벌 임상시험 인재 채용 플랫폼으로, 한/영 다국어 지원이 핵심입니다. i18n 기반의 다국어 처리 시스템을 설계하고, TanStack Form + Zod를 활용한 Multi-Step 지원서 제출 플로우와 Kakao Postcode API를 통한 주소 검색 시스템을 구현했습니다.',
     category: 'work',
+    company: '(주)케이알메딕스',
   },
   {
     id: 'medi25health-supplement',
@@ -60,6 +62,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     detail:
       '메디25헬스 플랫폼의 건강기능식품 맞춤 추천 서비스입니다. 프론트엔드(Vue)부터 백엔드(NestJS + Prisma)까지 풀스택으로 개발에 참여했습니다. Storybook을 도입하여 신입 합류 이후의 컴포넌트 문서화와 온보딩 기반을 마련했습니다.',
     category: 'work',
+    company: '(주)케이알메딕스',
   },
   {
     id: 'medi25care-caregiver',
@@ -79,13 +82,14 @@ export const PROJECTS_DATA: ProjectItem[] = [
     detail:
       '메디25케어의 간병인 매칭 플랫폼으로, 환자 보호자와 간병인을 연결하는 서비스입니다. 다단계 매칭 플로우를 TanStack Form으로 구현하고, Storybook으로 팀 내 컴포넌트 문서화 체계를 수립했습니다. 이 프로젝트에서 팀 내 첫 Storybook 도입을 주도했습니다.',
     category: 'work',
+    company: '(주)케이알메딕스',
   },
   {
     id: 'medi25-healthcare',
     name: '메디25 헬스케어 신규 서비스',
-    period: '2024.06 ~ 2026.12',
+    period: '2024.06 ~ 2024.12',
     role: '프론트엔드 개발자',
-    skills: ['Vue', 'TypeScript', 'Pinia', 'Axios'],
+    skills: ['Vue', 'TypeScript', 'Pinia', 'Axios', 'Chart.js'],
     summary: '메디25 헬스케어 앱 신규 서비스 5종 프론트엔드 개발',
     tasks: [
       '내 의료기록 조회 서비스 개발',
@@ -95,8 +99,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
       '병원/약국 찾기 서비스 개발',
     ],
     detail:
-      '메디25 헬스케어 앱의 신규 서비스 5종을 기획 단계부터 개발까지 담당했습니다. 의료기록 조회, 임상시험 AI 매칭, 건강나이 진단, 복용약 알림, 병원/약국 찾기를 Vue + TypeScript + Pinia 스택으로 구현하며 헬스케어 도메인 전반의 서비스 개발 경험을 쌓았습니다.',
+      '메디25 헬스케어 앱의 신규 서비스 5종을 기획 단계부터 개발까지 담당했습니다. 국민건강보험으로부터 받아온 의료기록을 Chart.js로 시각화하고, 임상시험 AI 매칭, 건강나이 진단, 복용약 알림, 병원/약국 찾기를 Vue + TypeScript + Pinia 스택으로 구현하며 헬스케어 도메인 전반의 서비스 개발 경험을 쌓았습니다.',
     category: 'work',
+    company: '(주)케이알메딕스',
   },
   {
     id: 'medi25-matching',
@@ -115,14 +120,15 @@ export const PROJECTS_DATA: ProjectItem[] = [
     detail:
       '메디25의 생동성시험 및 임상시험 참가자 매칭 플랫폼의 유지보수와 어드민 개발을 담당했습니다. 레거시 jQuery/PHP 스택에서 Vue + TypeScript로의 점진적 마이그레이션을 주도하고, 어드민 성능 최적화 및 신규 서비스에 따른 기능 확장을 수행했습니다.',
     category: 'work',
+    company: '(주)케이알메딕스',
   },
   {
     id: 'inflstock',
-    name: '(주)인플스톡 팬덤 미디어 플랫폼',
+    name: '[외주] 팬덤 미디어 플랫폼',
     period: '2022.08 ~ 2022.11',
-    role: '프론트엔드 개발자 (외주)',
+    role: '프론트엔드 개발자 (프리랜서)',
     skills: ['React', 'TypeScript', 'Zustand', 'SCSS'],
-    summary: '인플루언서와 팬을 연결하는 팬덤 미디어 플랫폼 프론트엔드 외주 개발',
+    summary: '인플루언서와 팬을 연결하는 팬덤 미디어 플랫폼 스타트업을 초기부터 개발하여 출시까지 완수',
     tasks: [
       'React + TypeScript + Zustand 기반 SPA 구축',
       'SCSS 기반 컴포넌트 스타일링 시스템 구축',
@@ -130,8 +136,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
       'Figma UI/UX 디자인',
     ],
     detail:
-      '스타트업 외주 프로젝트로, 인플루언서와 팬을 연결하는 팬덤 미디어 플랫폼의 프론트엔드를 개발했습니다. 초기 UI/UX 디자인에도 참여했으며 단독 프론트엔드 개발자로 React + TypeScript + Zustand 스택으로 SPA를 구축하고, SCSS 기반 컴포넌트 스타일링 시스템을 설계했습니다. 매주 백엔드 담당 SI팀과 스크럼 회의를 진행하며 프로젝트를 성공적으로 완료했습니다.',
+      '스타트업 외주 프로젝트로, 인플루언서와 팬을 연결하는 팬덤 미디어 플랫폼의 프론트엔드를 초기부터 개발하여 출시까지 완수했습니다. 초기 UI/UX 디자인에도 참여했으며 단독 프론트엔드 개발자로 React + TypeScript + Zustand 스택으로 SPA를 구축하고, SCSS 기반 컴포넌트 스타일링 시스템을 설계했습니다. 매주 백엔드 담당 SI팀과 스크럼 회의를 진행하며 프로젝트를 성공적으로 완료했습니다.',
     category: 'work',
+    company: '(주)인플스톡',
   },
   {
     id: 'deafassist',
