@@ -20,9 +20,10 @@ import {
 import type { IconType } from 'react-icons'
 
 interface SkillIconMeta {
-  icon: IconType
-  color: string
+  icon?: IconType
+  color?: string
   darkColor?: string
+  svgUrl?: string
 }
 
 export const SKILL_ICON_MAP: Record<string, SkillIconMeta> = {
@@ -44,4 +45,7 @@ export const SKILL_ICON_MAP: Record<string, SkillIconMeta> = {
   'Xcode': { icon: SiXcode, color: '#147EFB' },
   'jQuery': { icon: SiJquery, color: '#0769AD' },
   'Axios': { icon: SiAxios, color: '#5A29E4' },
+  'Pinia': { svgUrl: '/icons/pinia.svg' },
+  'Zustand': { svgUrl: '/icons/zustand.svg' },
+  'TanStack Form': { svgUrl: '/icons/tanstack-form.svg' },
 }
