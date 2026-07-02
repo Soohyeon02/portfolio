@@ -3,11 +3,17 @@
 import { useState } from 'react'
 
 export const useAccordion = () => {
-  const [openId, setOpenId] = useState<string | null>(null)
+  const [openIds, setOpenIds] = useState<Set<string>>(new Set())
 
   const toggle = (id: string) => {
-    setOpenId((prev) => (prev === id ? null : id))
+    setOpenIds((prev) => {
+      const next = new Set(prev)
+      next.has(id) ? next.delete(id) : next.add(id)
+      return next
+    })
   }
 
-  return { openId, toggle }
+  const isOpen = (id: string) => openIds.has(id)
+
+  return { isOpen, toggle }
 }

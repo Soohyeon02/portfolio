@@ -6,13 +6,12 @@ import { SkillChip } from './SkillChip'
 
 interface ProjectCardProps {
   project: ProjectItem
-  openId: string | null
+  isOpen: boolean
   onToggle: (id: string) => void
   onDetail: (project: ProjectItem) => void
 }
 
-export const ProjectCard = ({ project, openId, onToggle, onDetail }: ProjectCardProps) => {
-  const isOpen = openId === project.id
+export const ProjectCard = ({ project, isOpen, onToggle, onDetail }: ProjectCardProps) => {
 
   return (
     <div className="relative pl-8">
