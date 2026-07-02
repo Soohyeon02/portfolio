@@ -24,7 +24,7 @@ const fadeUp = {
 
 export const ProjectsSection = () => {
   const [activeTab, setActiveTab] = useState<Tab>('work')
-  const { openId, toggle } = useAccordion()
+  const { isOpen, toggle } = useAccordion()
   const { selectedProject, openModal, closeModal } = useProjectModal()
 
   const filtered = PROJECTS_DATA.filter((p) => p.category === activeTab)
@@ -121,7 +121,7 @@ export const ProjectsSection = () => {
                       >
                         <ProjectCard
                           project={project}
-                          openId={openId}
+                          isOpen={isOpen(project.id)}
                           onToggle={toggle}
                           onDetail={openModal}
                         />
@@ -144,7 +144,7 @@ export const ProjectsSection = () => {
                 >
                   <ProjectCard
                     project={project}
-                    openId={openId}
+                    isOpen={isOpen(project.id)}
                     onToggle={toggle}
                     onDetail={openModal}
                   />
