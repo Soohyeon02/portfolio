@@ -37,13 +37,13 @@ export const ProjectCard = ({ project, openId, onToggle, onDetail }: ProjectCard
         {/* Summary + accordion toggle */}
         <button
           onClick={() => onToggle(project.id)}
-          className="mt-4 flex w-full items-center justify-between gap-2 text-left text-sm text-muted-foreground hover:text-foreground transition-colors"
+          className="group mt-4 flex w-full items-center justify-between gap-2 text-left text-sm text-muted-foreground rounded-lg px-3 py-2.5 -mx-3 hover:bg-accent/10 hover:text-accent transition-colors"
         >
           <span>{project.summary}</span>
           <motion.span
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.2 }}
-            className="shrink-0 text-muted-foreground"
+            className="shrink-0 text-muted-foreground group-hover:text-accent transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

@@ -13,6 +13,7 @@ export interface ProjectItem {
   tasks: string[]
   detail: string
   category: 'work' | 'side'
+  company?: string
 }
 
 export interface ContactLink {
