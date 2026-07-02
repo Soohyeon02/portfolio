@@ -1,14 +1,17 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { PROJECTS_DATA } from '@/lib/data'
 import { useAccordion } from '@/hooks/useAccordion'
 import { useProjectModal } from '@/hooks/useProjectModal'
 import { ProjectCard } from '@/components/ui/ProjectCard'
 import { ProjectModal } from '@/components/ui/ProjectModal'
+import { CompanyHeader } from '@/components/ui/CompanyHeader'
+import type { ProjectItem } from '@/types'
 
 type Tab = 'work' | 'side'
+type CompanyGroup = { company: string; projects: ProjectItem[] }
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -25,6 +28,19 @@ export const ProjectsSection = () => {
   const { selectedProject, openModal, closeModal } = useProjectModal()
 
   const filtered = PROJECTS_DATA.filter((p) => p.category === activeTab)
+
+  const grouped = useMemo<CompanyGroup[] | null>(() => {
+    if (activeTab === 'side') return null
+    return filtered.reduce<CompanyGroup[]>((acc, p) => {
+      const last = acc[acc.length - 1]
+      if (last && last.company === (p.company ?? '')) {
+        last.projects.push(p)
+      } else {
+        acc.push({ company: p.company ?? '', projects: [p] })
+      }
+      return acc
+    }, [])
+  }, [filtered, activeTab])
 
   return (
     <section id="projects" className="min-h-screen px-6 py-24">
@@ -80,25 +96,62 @@ export const ProjectsSection = () => {
           {/* Vertical line */}
           <div className="absolute left-[5px] top-2 bottom-2 w-px bg-border" />
 
-          <div className="flex flex-col gap-6">
-            {filtered.map((project, i) => (
-              <motion.div
-                key={project.id}
-                custom={0.1 + i * 0.08}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-                variants={fadeUp}
-              >
-                <ProjectCard
-                  project={project}
-                  openId={openId}
-                  onToggle={toggle}
-                  onDetail={openModal}
-                />
-              </motion.div>
-            ))}
-          </div>
+          {grouped ? (
+            <div className="flex flex-col">
+              {grouped.map((group, gi) => (
+                <div key={group.company} className={gi > 0 ? 'mt-10' : ''}>
+                  <motion.div
+                    custom={0.1 + gi * 0.12}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.1 }}
+                    variants={fadeUp}
+                  >
+                    <CompanyHeader name={group.company} />
+                  </motion.div>
+                  <div className="flex flex-col gap-6">
+                    {group.projects.map((project, i) => (
+                      <motion.div
+                        key={project.id}
+                        custom={0.15 + gi * 0.12 + i * 0.08}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.1 }}
+                        variants={fadeUp}
+                      >
+                        <ProjectCard
+                          project={project}
+                          openId={openId}
+                          onToggle={toggle}
+                          onDetail={openModal}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col gap-6">
+              {filtered.map((project, i) => (
+                <motion.div
+                  key={project.id}
+                  custom={0.1 + i * 0.08}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.1 }}
+                  variants={fadeUp}
+                >
+                  <ProjectCard
+                    project={project}
+                    openId={openId}
+                    onToggle={toggle}
+                    onDetail={openModal}
+                  />
+                </motion.div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
