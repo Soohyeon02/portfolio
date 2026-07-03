@@ -5,6 +5,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { SectionDots } from '@/components/layout/SectionDots'
+import { ScrollToTop } from '@/components/layout/ScrollToTop'
 import './globals.css'
 
 const geistSans = Geist({
@@ -37,6 +38,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <SectionDots />
+          <ScrollToTop />
           <main className="pt-16">{children}</main>
           <Footer />
         </ThemeProvider>
