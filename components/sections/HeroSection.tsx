@@ -35,7 +35,7 @@ export const HeroSection = () => {
             variants={fadeUp}
             className="text-accent text-sm font-mono mb-4 tracking-widest uppercase"
           >
-            Frontend Developer
+            Software Engineer
           </motion.p>
 
           <motion.h1
@@ -55,9 +55,9 @@ export const HeroSection = () => {
             variants={fadeUp}
             className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed"
           >
-            기술과 비즈니스 성과를 함께 고민하는
+            사용자 경험과 서비스 구조를 함께 고민하며,
             <br />
-            프론트엔드 개발자입니다.
+            기술적 완성도까지 책임지는 개발자입니다.
           </motion.p>
 
           <motion.div
