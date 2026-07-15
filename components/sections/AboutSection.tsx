@@ -51,9 +51,9 @@ export const AboutSection = () => {
           variants={fadeUp}
           className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-12"
         >
-          기술과 비즈니스 성과를
+          사용자 경험과 서비스 구조를 함께 고민하며,
           <br />
-          함께 고민합니다.
+          기술적 완성도까지 책임지는 개발자입니다.
         </motion.h2>
 
         <div className="flex flex-col gap-6">

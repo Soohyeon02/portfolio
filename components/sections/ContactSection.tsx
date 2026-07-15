@@ -39,9 +39,9 @@ export const ContactSection = () => {
           variants={fadeUp}
           className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4"
         >
-          함께 만들어갈
+          좋은 코드는 끝이 아니라,
           <br />
-          기회를 기다립니다.
+          좋은 서비스의 시작이라고 생각합니다.
         </motion.h2>
 
         <motion.p
@@ -52,9 +52,7 @@ export const ContactSection = () => {
           variants={fadeUp}
           className="text-base text-muted-foreground mb-10 leading-7"
         >
-          언제든 저의 역량으로 팀에 기여할 준비가 되어 있습니다.
-          <br />
-          아래를 통해 연락해 주세요.
+          함께 더 나은 서비스를 만들어갈 기회를 기대합니다.
         </motion.p>
 
         <div className="flex flex-col gap-3">
