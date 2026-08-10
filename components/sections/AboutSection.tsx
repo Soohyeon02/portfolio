@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ABOUT_TEXT } from '@/lib/data'
+import type { AboutContent } from '@/lib/schemas'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -25,7 +25,11 @@ function renderBold(text: string) {
   )
 }
 
-export const AboutSection = () => {
+interface AboutSectionProps {
+  about: AboutContent
+}
+
+export const AboutSection = ({ about }: AboutSectionProps) => {
   return (
     <section
       id="about"
@@ -49,15 +53,13 @@ export const AboutSection = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
-          className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-12"
+          className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-12 whitespace-pre-line"
         >
-          사용자 경험과 서비스 구조를 함께 고민하며,
-          <br />
-          기술적 완성도까지 책임지는 개발자입니다.
+          {about.heading}
         </motion.h2>
 
         <div className="flex flex-col gap-6">
-          {ABOUT_TEXT.map((paragraph, i) => (
+          {about.paragraphs.map((paragraph, i) => (
             <motion.p
               key={i}
               custom={0.2 + i * 0.12}

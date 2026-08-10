@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import type { ProjectItem } from '@/types'
+import type { ProjectItem } from '@/lib/schemas'
 
 export const useProjectModal = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null)

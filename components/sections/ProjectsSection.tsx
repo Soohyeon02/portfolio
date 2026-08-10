@@ -2,13 +2,12 @@
 
 import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { PROJECTS_DATA } from '@/lib/data'
 import { useAccordion } from '@/hooks/useAccordion'
 import { useProjectModal } from '@/hooks/useProjectModal'
 import { ProjectCard } from '@/components/ui/ProjectCard'
 import { ProjectModal } from '@/components/ui/ProjectModal'
 import { CompanyHeader } from '@/components/ui/CompanyHeader'
-import type { ProjectItem } from '@/types'
+import type { ProjectsContent, ProjectItem } from '@/lib/schemas'
 
 type Tab = 'work' | 'side'
 type CompanyGroup = { company: string; projects: ProjectItem[] }
@@ -22,12 +21,16 @@ const fadeUp = {
   }),
 }
 
-export const ProjectsSection = () => {
+interface ProjectsSectionProps {
+  projects: ProjectsContent
+}
+
+export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
   const [activeTab, setActiveTab] = useState<Tab>('work')
   const { isOpen, toggle } = useAccordion()
   const { selectedProject, openModal, closeModal } = useProjectModal()
 
-  const filtered = PROJECTS_DATA.filter((p) => p.category === activeTab)
+  const filtered = projects.items.filter((p) => p.category === activeTab)
 
   const grouped = useMemo<CompanyGroup[] | null>(() => {
     if (activeTab === 'side') return null
@@ -64,7 +67,7 @@ export const ProjectsSection = () => {
           variants={fadeUp}
           className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-8"
         >
-          경험으로 쌓은 결과물
+          {projects.heading}
         </motion.h2>
 
         {/* Tab */}
