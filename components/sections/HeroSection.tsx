@@ -3,8 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-
-const GITHUB_URL = 'https://github.com/Soohyeon02'
+import type { HeroContent } from '@/lib/schemas'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -15,7 +14,11 @@ const fadeUp = {
   }),
 }
 
-export const HeroSection = () => {
+interface HeroSectionProps {
+  hero: HeroContent
+}
+
+export const HeroSection = ({ hero }: HeroSectionProps) => {
   const scrollToContact = () => {
     const el = document.getElementById('contact')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -35,7 +38,7 @@ export const HeroSection = () => {
             variants={fadeUp}
             className="text-accent text-sm font-mono mb-4 tracking-widest uppercase"
           >
-            Software Engineer
+            {hero.eyebrow}
           </motion.p>
 
           <motion.h1
@@ -45,7 +48,7 @@ export const HeroSection = () => {
             variants={fadeUp}
             className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-4"
           >
-            황수현
+            {hero.name}
           </motion.h1>
 
           <motion.p
@@ -53,11 +56,9 @@ export const HeroSection = () => {
             initial="hidden"
             animate="visible"
             variants={fadeUp}
-            className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed whitespace-pre-line"
           >
-            사용자 경험과 서비스 구조를 함께 고민하며,
-            <br />
-            기술적 완성도까지 책임지는 개발자입니다.
+            {hero.intro}
           </motion.p>
 
           <motion.div
@@ -70,7 +71,7 @@ export const HeroSection = () => {
             <Button
               variant="primary"
               size="lg"
-              onClick={() => window.open(GITHUB_URL, '_blank', 'noopener noreferrer')}
+              onClick={() => window.open(hero.githubUrl, '_blank', 'noopener noreferrer')}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

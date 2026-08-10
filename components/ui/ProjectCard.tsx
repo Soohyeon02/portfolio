@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import type { ProjectItem } from '@/types'
+import type { ProjectItem } from '@/lib/schemas'
 import { SkillChip } from './SkillChip'
 
 interface ProjectCardProps {
