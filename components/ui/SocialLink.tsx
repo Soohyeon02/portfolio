@@ -1,4 +1,4 @@
-import type { ContactLink } from '@/types'
+import type { ContactLink } from '@/lib/schemas'
 
 const icons = {
   email: (
